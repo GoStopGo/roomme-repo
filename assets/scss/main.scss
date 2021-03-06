@@ -1,0 +1,60 @@
+@import '~assets/scss/baseColor.scss';
+
+html {
+	box-sizing: border-box;
+}
+
+* {
+	box-sizing: inherit;
+	outline: none;
+
+	&::before,
+	&::after {
+		box-sizing: inherit;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 3px;
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: $color-grey;
+}
+
+body {
+	font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-size: 16px;
+	word-spacing: 1px;
+	color: $color-default;
+	margin: 0;
+}
+
+.font-light {
+	color: $color-light;
+}
+
+.font-red {
+	color: $color-red;
+}
+
+.font-green {
+	color: $color-green;
+}
+
+.font-blue {
+	color: $color-blue;
+}
+
+.font-bold {
+	font-weight: 700;
+}
+
+.background-light {
+	background-color: $color-light;
+}
+
+.background-grey {
+	background-color: $color-default;
+}
