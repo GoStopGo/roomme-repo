@@ -49,6 +49,9 @@ export default {
 			this.emitToParent()
 		}
 	},
+	created() {
+		this.updateData()
+	},
 	methods: {
 		toggleDropdown() {
 			this.visibleDropdownList = !this.visibleDropdownList

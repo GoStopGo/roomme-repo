@@ -3,7 +3,7 @@
 		<div class="me-search-block__wrapper">
 			<div class="me-search-block__search-field-frame me-search-block--block-2">
 				<me-search-field
-					v-model="searchKeyword"
+					v-model="searchLocationKeyword"
 					label="Search Location"
 					placeholder="Cari Lokasi Kost"
 					:has-result="!!locations.length"
@@ -14,7 +14,7 @@
 						:key="l.value"
 						:label="l.label"
 						:value="l.value"
-						@select="handleSearchSelection"
+						@select="handleAutocompleteSelection"
 					/>
 				</me-search-field>
 			</div>
@@ -26,7 +26,8 @@
 						<me-date-picker
 							v-model="checkInDate"
 							class="me-search-block__check-in-date-picker me-dtp__date"
-							:disabled-dates="{ to: checkInDate }"
+							:disabled-dates="{ to: new Date() }"
+							@selected="handleCheckInSelection"
 						/>
 						<me-icon class="me-dtp__icon" :icon="['fas', 'calendar-alt']" />
 					</client-only>
@@ -68,10 +69,12 @@
 			<div class="me-search-block__check-out-frame me-search-block--block-1">
 				<div class="me-search-block__date-group me-dtp">
 					<client-only>
-						<label class="me-dtp__label">Check in</label>
+						<label class="me-dtp__label">Check out</label>
 						<me-date-picker
 							v-model="checkOutDate"
 							class="me-search-block__check-out-date-picker me-dtp__date"
+							:disabled-dates="minCheckOutDate"
+							@selected="handleCheckOutSelection"
 						/>
 						<me-icon class="me-dtp__icon" :icon="['fas', 'calendar-alt']" />
 					</client-only>
@@ -86,6 +89,8 @@
 </template>
 
 <script>
+import helpers from '~/utils/helpers'
+
 import { ADDITIONAL_DAYS } from '~/static/additional-days'
 
 import { DURATIONS } from '~/static/durations'
@@ -93,126 +98,65 @@ import { DURATIONS } from '~/static/durations'
 export default {
 	data() {
 		return {
+			autoComplete: [],
 			additionalDay: null,
 			checkInDate: null,
 			checkOutDate: null,
 			duration: null,
-			searchKeyword: '',
+			searchLocationKeyword: '',
 			locations: [],
 			durations: DURATIONS,
 			additionalDays: ADDITIONAL_DAYS,
 			formSearch: {
-				searchResult: {},
+				selectedLocation: {},
 				additionalDay: null,
 				duration: null
 			}
 		}
 	},
+	async fetch() {
+		this.autoComplete = await fetch(
+			'https://private-94343-roommetest.apiary-mock.com/search/autocomplete'
+		).then((res) => res.json())
+	},
+	computed: {
+		minCheckOutDate() {
+			const date = new Date()
+			const daysInMonth = helpers.countDaysInMonth(this.checkInDate)
+			date.setDate(this.checkInDate.getDate() + daysInMonth - 1)
+			return { to: date }
+		}
+	},
 	created() {
-		const date = new Date()
-		this.checkInDate = date
-		this.duration = 1
-		this.additionalDay = 0
-		this.calculateCheckOut()
+		this.calculateCheckIn()
+		this.init()
+		this.calculateCheckOut(this.checkInDate)
 	},
 	methods: {
-		calculateCheckOut() {
-			const result = 0
-			// TODO formula : check in + duration + additional days
+		init() {
+			this.additionalDay = this.additionalDays['0'].label
+			this.duration = this.durations['1'].label
+			this.formSearch.duration = 1
+			this.formSearch.additionalDay = 0
+		},
+		calculateCheckIn() {
+			const tomorrow = new Date()
+			tomorrow.setDate(new Date().getDate() + 1)
+			this.checkInDate = tomorrow
+		},
+		calculateCheckOut(checkIndate) {
+			const daysInMonth = helpers.countDaysInMonth(checkIndate)
+			const days =
+				+daysInMonth * +this.formSearch.duration +
+				+this.formSearch.additionalDay
+
+			const result = new Date()
+			result.setDate(checkIndate.getDate() + days)
 			this.checkOutDate = result
 		},
 		getAutocompleteSuggestion(query) {
 			// TODO:: hit api to get search suggestion
-			const apiResponse = [
-				{
-					unit: {
-						id: 1,
-						name: 'Test Unit',
-						slug: 'test-unit'
-					},
-					district: {
-						id: 1,
-						name: 'Menteng',
-						slug: 'menteng'
-					},
-					city: {
-						id: 1,
-						name: 'Jakarta Utara',
-						slug: 'jakarta-utara'
-					},
-					province: {
-						id: 1,
-						name: 'DKI Jakarta',
-						slug: 'dki-jakarta'
-					}
-				},
-				{
-					unit: {},
-					district: {
-						id: 1,
-						name: 'Menteng',
-						slug: 'menteng'
-					},
-					city: {
-						id: 1,
-						name: 'Jakarta Utara',
-						slug: 'jakarta-utara'
-					},
-					province: {
-						id: 1,
-						name: 'DKI Jakarta',
-						slug: 'dki-jakarta'
-					}
-				},
-				{
-					unit: {},
-					district: {},
-					city: {
-						id: 1,
-						name: 'Jakarta Utara',
-						slug: 'jakarta-utara'
-					},
-					province: {
-						id: 1,
-						name: 'DKI Jakarta',
-						slug: 'dki-jakarta'
-					}
-				},
-				{
-					unit: {},
-					district: {},
-					city: {},
-					province: {
-						id: 1,
-						name: 'DKI Jakarta',
-						slug: 'dki-jakarta'
-					}
-				},
-				{
-					unit: {
-						id: 1,
-						name: 'Test Unit',
-						slug: 'test-unit'
-					},
-					district: {
-						id: 1,
-						name: 'Menteng',
-						slug: 'menteng'
-					},
-					city: {
-						id: 1,
-						name: 'Jakarta Utara',
-						slug: 'jakarta-utara'
-					},
-					province: {
-						id: 1,
-						name: 'DKI Jakarta',
-						slug: 'dki-jakarta'
-					}
-				}
-			]
-
-			const result = apiResponse.map((item) => {
+			const result = this.tempApiAutocompleteResponse.map((item) => {
 				let label = ''
 				let value = ''
 				for (const subItem of Object.values(item)) {
@@ -229,10 +173,10 @@ export default {
 			this.locations = result
 		},
 
-		handleSearchSelection({ value, label }) {
-			this.searchKeyword = label
+		handleAutocompleteSelection({ value, label }) {
+			this.searchLocationKeyword = label
 			const ids = value.split('_')
-			this.formSearch.searchResult = {
+			this.formSearch.selectedLocation = {
 				unitId: ids[0],
 				districtId: ids[1],
 				cityId: ids[2],
@@ -244,14 +188,43 @@ export default {
 			})
 		},
 
+		handleCheckInSelection(date) {
+			this.init()
+			this.calculateCheckOut(date)
+		},
+
 		handleDurationSelection({ value }) {
 			this.formSearch.duration = value
 			this.duration = this.durations[value].label
+			this.calculateCheckOut(this.checkInDate)
 		},
 
 		handleAdditionalDaySelection({ value }) {
 			this.formSearch.additionalDay = value
 			this.additionalDay = this.additionalDays[value].label
+
+			this.calculateCheckOut(this.checkInDate)
+		},
+
+		handleCheckOutSelection(checkOutDate) {
+			const range = Math.round(
+				helpers.getNumberOfDays(this.checkInDate, checkOutDate)
+			)
+			const daysInMonth = helpers.countDaysInMonth(this.checkInDate)
+			let duration = Math.floor(range / daysInMonth)
+			const moduloFromDuration = range % daysInMonth
+
+			if (moduloFromDuration <= 15) {
+				this.formSearch.additionalDay = moduloFromDuration
+				this.additionalDay = this.additionalDays[`${moduloFromDuration}`].label
+			} else {
+				duration += 1
+				this.formSearch.additionalDay = 0
+				this.additionalDay = this.additionalDays[`0`].label
+			}
+
+			this.formSearch.duration = duration
+			this.duration = this.durations[`${duration}`].label
 		},
 
 		searchData() {

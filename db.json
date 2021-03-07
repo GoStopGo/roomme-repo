@@ -1,0 +1,449 @@
+{
+    "autoComplete": {
+        "meta": {
+            "message": "Search autocomplete success"
+        },
+        "data": [
+        {
+            "unit": {
+                "id": 1,
+                "name": "Test Unit",
+                "slug": "test-unit"
+            },
+            "district": {
+                "id": 1,
+                "name": "Menteng",
+                "slug": "menteng"
+            },
+            "city": {
+                "id": 1,
+                "name": "Jakarta Utara",
+                "slug": "jakarta-utara"
+            },
+            "province": {
+                "id": 1,
+                "name": "DKI Jakarta",
+                "slug": "dki-jakarta"
+            }
+        },
+        {
+            "unit": {},
+            "district": {
+                "id": 1,
+                "name": "Menteng",
+                "slug": "menteng"
+            },
+            "city": {
+                "id": 1,
+                "name": "Jakarta Utara",
+                "slug": "jakarta-utara"
+            },
+            "province": {
+                "id": 1,
+                "name": "DKI Jakarta",
+                "slug": "dki-jakarta"
+            }
+        },
+        {
+            "unit": {},
+            "district": {},
+            "city": {
+                "id": 1,
+                "name": "Jakarta Utara",
+                "slug": "jakarta-utara"
+            },
+            "province": {
+                "id": 1,
+                "name": "DKI Jakarta",
+                "slug": "dki-jakarta"
+            }
+        },
+        {
+            "unit": {},
+            "district": {},
+            "city": {},
+            "province": {
+                "id": 1,
+                "name": "DKI Jakarta",
+                "slug": "dki-jakarta"
+            }
+        },
+        {
+            "unit": {
+                "id": 1,
+                "name": "Test Unit",
+                "slug": "test-unit"
+            },
+            "district": {
+                "id": 1,
+                "name": "Menteng",
+                "slug": "menteng"
+            },
+            "city": {
+                "id": 1,
+                "name": "Jakarta Utara",
+                "slug": "jakarta-utara"
+            },
+            "province": {
+                "id": 1,
+                "name": "DKI Jakarta",
+                "slug": "dki-jakarta"
+            }
+        }
+        ]
+    },
+
+    "search": {
+        "meta": {
+          "breadcrumbs": {
+            "province": {
+              "id": 1,
+              "name": "DKI Jakarta",
+              "slug": "dki-jakarta"
+            },
+            "city": {
+              "id": 1,
+              "name": "Jakarta Utara",
+              "slug": "jakarta-utara"
+            },
+            "district": {
+              "id": 1,
+              "name": "Menteng",
+              "slug": "menteng"
+            },
+            "unit": {
+              "id": 1,
+              "name": "Test Unit",
+              "slug": "test-unit"
+            }
+          }
+        },
+        "data": {
+          "id": 1,
+          "slug": "test-unit",
+          "name": "Kost RoomMe Pasar Minggu Calm Sweet",
+          "images": [
+              "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+              "https://cdn.roomme.id/medium/24392d56-d588-376b-948f-0303d1e83f2e_7617b76a-906d-36dc-84dd-1242a1809c26.JPG",
+              "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+              "https://cdn.roomme.id/medium/24392d56-d588-376b-948f-0303d1e83f2e_7617b76a-906d-36dc-84dd-1242a1809c26.JPG",
+              "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+              "https://cdn.roomme.id/medium/24392d56-d588-376b-948f-0303d1e83f2e_7617b76a-906d-36dc-84dd-1242a1809c26.JPG",
+              "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg"
+          ],
+          "desc": "Mencari tempat tinggal untuk keperluan anda di daerah Tangerang tidak membutuhkan biaya yang mahal. Sebuah hunian yang berlokasi di Kelapa Dua, Suasana ruangan yang bersih dan nyaman, cocok bagi Anda yang mencari tempat tinggal dan kost. Lokasi yang strategis sehingga mudah untuk diakses. WiFi tersedia di seluruh area publik properti untuk membantu Anda tetap terhubung dengan keluarga dan teman. RoomMe Tangerang David adalah tempat yang sempurna untuk tempat tinggal dan kost yang menyediakan fasilitas yang layak serta layanan yang luar biasa. Mencari tempat tinggal untuk keperluan anda di daerah Tangerang tidak membutuhkan biaya yang mahal. Sebuah hunian yang berlokasi di Kelapa Dua, Suasana ruangan yang bersih dan nyaman, cocok bagi Anda yang mencari tempat tinggal dan kost. Lokasi yang strategis sehingga mudah untuk diakses. WiFi tersedia di seluruh area publik properti untuk membantu Anda tetap terhubung dengan keluarga dan teman. RoomMe Tangerang David adalah tempat yang sempurna untuk tempat tinggal dan kost yang menyediakan fasilitas yang layak serta layanan yang luar biasa.",
+          "address": "Jl. Kerajinan II No. 19, RT 07/RW 05, Jakarta Pusat, Indonesia",
+          "lat": "-6.277041",
+          "long": "106.730379",
+          "category": "wanita",
+          "isLongTerm": true,
+          "longTermInfo": [
+              {
+                  "month": 3,
+                  "discountPercentage": 15,
+                  "discountPrice": 15000
+              },
+              {
+                  "month": 6,
+                  "discountPercentage": 15,
+                  "discountPrice": 15000
+              },
+              {
+                  "month": 9,
+                  "discountPercentage": 15,
+                  "discountPrice": 15000
+              },
+              {
+                  "month": 12,
+                  "discountPercentage": 15,
+                  "discountPrice": 15000
+              }
+          ],
+          "facilities": [
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            },
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            },
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            },
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            },
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            },
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            },
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            },
+            {
+              "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+              "name": "Free Wifi"
+            }
+          ],
+          "roomTypes": [
+              {
+                  "id": 1,
+                  "name": "Comfort Single Bed",
+                  "roomSize": "150 sqm",
+                  "bedSize": "Single Size",
+                  "originalPrice": 800000,
+                  "sellingPrice": 499999,
+                  "discountPercentage": 15,
+                  "longTermPrices": [
+                      {
+                          "month": 3,
+                          "discountPercentage": 15,
+                          "discountPrice": 150000,
+                          "originalPrice": 8000000,
+                          "sellingPrice": 5999990
+                      },
+                      {
+                          "month": 6,
+                          "discountPercentage": 15,
+                          "discountPrice": 150000,
+                          "originalPrice": 8000000,
+                          "sellingPrice": 7999990
+                      },
+                      {
+                          "month": 9,
+                          "discountPercentage": 15,
+                          "discountPrice": 150000,
+                          "originalPrice": 8000000,
+                          "sellingPrice": 7999990
+                      },
+                      {
+                          "month": 12,
+                          "discountPercentage": 15,
+                          "discountPrice": 150000,
+                          "originalPrice": 8000000,
+                          "sellingPrice": 7999990
+                      }
+                  ],
+                  "availableRooms": 10,
+                  "images": [
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg"
+                  ],
+                  "facilities": [
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    }
+                  ]
+              },
+              {
+                  "id": 2,
+                  "name": "Comfort Single Bed 2",
+                  "roomSize": "150 sqm",
+                  "bedSize": "Single Size",
+                  "originalPrice": 800000,
+                  "sellingPrice": 699999,
+                  "discountPercentage": 0,
+                  "longTermPrices": [
+                      {
+                          "month": 3,
+                          "discountPercentage": 15,
+                          "discountPrice": 190000,
+                          "originalPrice": 8100000,
+                          "sellingPrice": 7899990
+                      },
+                      {
+                          "month": 6,
+                          "discountPercentage": 15,
+                          "discountPrice": 180000,
+                          "originalPrice": 8200000,
+                          "sellingPrice": 7799990
+                      },
+                      {
+                          "month": 9,
+                          "discountPercentage": 15,
+                          "discountPrice": 170000,
+                          "originalPrice": 8300000,
+                          "sellingPrice": 7699990
+                      },
+                      {
+                          "month": 12,
+                          "discountPercentage": 15,
+                          "discountPrice": 160000,
+                          "originalPrice": 8400000,
+                          "sellingPrice": 7599990
+                      }
+                  ],
+                  "availableRooms": 10,
+                  "images": [
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg"
+                  ],
+                  "facilities": [
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    }
+                  ]
+              },
+              {
+                  "id": 3,
+                  "name": "Comfort Single Bed 3",
+                  "roomSize": "150 sqm",
+                  "bedSize": "Single Size",
+                  "originalPrice": 800000,
+                  "sellingPrice": 699999,
+                  "discountPercentage": 0,
+                  "longTermPrices": [
+                      {
+                          "month": 3,
+                          "discountPercentage": 15,
+                          "discountPrice": 190000,
+                          "originalPrice": 8100000,
+                          "sellingPrice": 7899990
+                      },
+                      {
+                          "month": 6,
+                          "discountPercentage": 15,
+                          "discountPrice": 180000,
+                          "originalPrice": 8200000,
+                          "sellingPrice": 7799990
+                      },
+                      {
+                          "month": 9,
+                          "discountPercentage": 15,
+                          "discountPrice": 170000,
+                          "originalPrice": 8300000,
+                          "sellingPrice": 7699990
+                      },
+                      {
+                          "month": 12,
+                          "discountPercentage": 15,
+                          "discountPrice": 160000,
+                          "originalPrice": 8400000,
+                          "sellingPrice": 7599990
+                      }
+                  ],
+                  "availableRooms": 0,
+                  "images": [
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg",
+                      "https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070__340.jpg"
+                  ],
+                  "facilities": [
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    },
+                    {
+                      "iconUrl": "https://cdn.roomme.id/icons/RoomMe_Icon_Water%20Heater.svg",
+                      "name": "Free Wifi"
+                    }
+                  ]
+              }
+          ]
+        }
+      }
+}
