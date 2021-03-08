@@ -8,12 +8,6 @@
 
 <script>
 export default {
-	data() {
-		return {
-			autoComplete: [],
-			count: 0
-		}
-	},
 	head() {
 		return {
 			title: 'Details'
@@ -21,9 +15,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss" scoped>
-.details {
-	background: #fff;
-}
-</style>

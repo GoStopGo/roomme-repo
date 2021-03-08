@@ -89,8 +89,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import helpers from '~/utils/helpers'
-
 import { ADDITIONAL_DAYS } from '~/static/additional-days'
 
 import { DURATIONS } from '~/static/durations'
@@ -98,7 +98,6 @@ import { DURATIONS } from '~/static/durations'
 export default {
 	data() {
 		return {
-			autoComplete: [],
 			additionalDay: null,
 			checkInDate: null,
 			checkOutDate: null,
@@ -114,12 +113,9 @@ export default {
 			}
 		}
 	},
-	async fetch() {
-		this.autoComplete = await fetch(
-			'https://private-94343-roommetest.apiary-mock.com/search/autocomplete'
-		).then((res) => res.json())
-	},
 	computed: {
+		...mapState('search', ['autoComplete']),
+
 		minCheckOutDate() {
 			const date = new Date()
 			const daysInMonth = helpers.countDaysInMonth(this.checkInDate)
@@ -127,23 +123,33 @@ export default {
 			return { to: date }
 		}
 	},
+
 	created() {
 		this.calculateCheckIn()
 		this.init()
 		this.calculateCheckOut(this.checkInDate)
 	},
+
 	methods: {
+		...mapActions('search', [
+			'fetchAutoComplete',
+			'fetchUnit',
+			'clearAutoComplete'
+		]),
+
 		init() {
 			this.additionalDay = this.additionalDays['0'].label
 			this.duration = this.durations['1'].label
 			this.formSearch.duration = 1
 			this.formSearch.additionalDay = 0
 		},
+
 		calculateCheckIn() {
 			const tomorrow = new Date()
 			tomorrow.setDate(new Date().getDate() + 1)
 			this.checkInDate = tomorrow
 		},
+
 		calculateCheckOut(checkIndate) {
 			const daysInMonth = helpers.countDaysInMonth(checkIndate)
 			const days =
@@ -154,23 +160,37 @@ export default {
 			result.setDate(checkIndate.getDate() + days)
 			this.checkOutDate = result
 		},
-		getAutocompleteSuggestion(query) {
-			// TODO:: hit api to get search suggestion
-			const result = this.tempApiAutocompleteResponse.map((item) => {
-				let label = ''
-				let value = ''
-				for (const subItem of Object.values(item)) {
-					value += subItem.id ? `${subItem.id}_` : '_'
-					label += subItem.name ? `${subItem.name}, ` : ''
-				}
-				value = value.replace(/_\s*$/, '')
-				label = label.replace(/,\s*$/, '')
 
-				return { value, label }
-			})
-			result.pop()
+		async getAutocompleteSuggestion(query) {
+			this.clearAutoComplete()
+			this.locations = []
 
-			this.locations = result
+			if (!query) {
+				return
+			}
+
+			const params = {
+				searchQuery: query
+			}
+			try {
+				const { data } = await this.fetchAutoComplete({ params })
+				let list = JSON.parse(JSON.stringify(data.data))
+				list = list.map((item) => {
+					let label = ''
+					let value = ''
+					for (const subItem of Object.values(item)) {
+						value += subItem.id ? `${subItem.id}_` : '_'
+						label += subItem.name ? `${subItem.name}, ` : ''
+					}
+					value = value.replace(/_\s*$/, '')
+					label = label.replace(/,\s*$/, '')
+
+					return { value, label }
+				})
+				list.pop()
+
+				this.locations = list
+			} catch (e) {}
 		},
 
 		handleAutocompleteSelection({ value, label }) {
@@ -227,8 +247,11 @@ export default {
 			this.duration = this.durations[`${duration}`].label
 		},
 
-		searchData() {
-			// TODO:: hit api to get data
+		async searchData() {
+			const params = { ...this.formSearch }
+			try {
+				await this.fetchUnit({ params })
+			} catch (e) {}
 		}
 	}
 }
