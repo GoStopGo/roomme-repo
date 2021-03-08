@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 export default {
-	async fetch() {
+	async fetch({ store }) {
 		try {
-			await this.fetchUnit()
+			await store.dispatch('search/fetchUnit')
 		} catch (e) {}
 	},
 	head() {
@@ -48,8 +48,6 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions('search', ['fetchUnit']),
-
 		handleRoomSelection(room) {
 			alert(room.name)
 		}
