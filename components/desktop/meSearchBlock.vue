@@ -82,7 +82,9 @@
 			</div>
 
 			<div class="me-search-block__button-frame me-search-block--block-1">
-				<me-button @click="searchData">Search</me-button>
+				<me-button :disabled="!searchLocationKeyword" @click="searchData"
+					>Search</me-button
+				>
 			</div>
 		</div>
 	</div>
@@ -195,16 +197,18 @@ export default {
 
 		handleAutocompleteSelection({ value, label }) {
 			this.searchLocationKeyword = label
-			const ids = value.split('_')
+			const [unitId, districtId, cityId, provinceId] = value.split('_')
 			this.formSearch.selectedLocation = {
-				unitId: ids[0],
-				districtId: ids[1],
-				cityId: ids[2],
-				provinceId: ids[3]
+				unitId,
+				districtId,
+				cityId,
+				provinceId
 			}
 
 			this.$nextTick(() => {
-				this.locations = []
+				setTimeout(() => {
+					this.locations = []
+				}, 400)
 			})
 		},
 

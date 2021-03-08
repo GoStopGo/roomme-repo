@@ -33,5 +33,15 @@ export default {
 		const mm = temp[1]
 		const yyyy = temp[2]
 		return new Date(`${mm}/${dd} /${yyyy}`).getTime()
+	},
+
+	// convert number to IDR
+	numberToRupiah(number) {
+		return new Intl.NumberFormat('id-ID', {
+			style: 'currency',
+			currency: 'IDR',
+			maximumFractionDigits: 0,
+			minimumFractionDigits: 0
+		}).format(number)
 	}
 }

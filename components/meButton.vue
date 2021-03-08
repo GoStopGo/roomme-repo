@@ -1,5 +1,10 @@
 <template>
-	<button class="me-button" :class="btnClass" @click="triggered">
+	<button
+		class="me-button"
+		:class="btnClass"
+		:disabled="disabled"
+		@click="triggered"
+	>
 		<slot />
 	</button>
 </template>
@@ -15,7 +20,9 @@ export default {
 
 	computed: {
 		btnClass() {
-			return `me-button--${this.color}`
+			let customClass = `me-button--${this.color}`
+			customClass += this.disabled ? ' me-button--disabled' : ''
+			return customClass
 		}
 	},
 
@@ -72,6 +79,10 @@ export default {
 
 	&:hover {
 		background-color: $color-light;
+	}
+
+	&--disabled {
+		cursor: not-allowed;
 	}
 }
 </style>
